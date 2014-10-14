@@ -1,6 +1,6 @@
 *.aux
-*log
+*.log
 *.synctex.gz
 *.blg
 *.pdf
-*bbl
+*.bbl
