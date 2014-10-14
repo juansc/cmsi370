@@ -1,6 +1,7 @@
-*.aux
+# Ignore these from LaTeX compilation
 *.log
-*.synctex.gz
-*.blg
 *.pdf
+*.gz
+*.aux
+*.blg
 *.bbl
