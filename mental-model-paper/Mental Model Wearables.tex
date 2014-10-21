@@ -9,19 +9,45 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \newcommand{\myreferences}{references}
 
-\title{Wearables}
+\title{Challenges for Head-Mounted Displays}
 \author{Juan S. Carrillo}
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
 \section{Introduction}
-One of the more interesting recent trends in the consumer market is the emergent interest in wearables. In fact, on KickStarter, a popular crowdfunding website, five of the ten top-funded projects are wearables \cite{VandricoTopTen}. All of the products managed to raise more that \$1 million from the general public. And it's not surprising. Some of these wearables seem to be science-fiction technology come true. The Emotiv Insight is a headset wearable which monitors and translates brain activity into signals that can be understood by other devices to remotely communicate with them, allowing the user to communicate with the devices through their thoughts. The Omate TrueSmart smartwatch can function as a phone, with capabilities such as allowing the users to browse the internet, make calls, and send text messages. Consumers are obviously intrigued by the possibilities of wearable computing, but realistically what can wearables really deliver to the consumer, given it's unique capabilities and limitations? This paper will focus on the physical capabilities of wearables, how they limit the functionality of wearables and how the practical functionality of a wearable differs from the expected functionality seen by users. We'll end this paper with a discussion on how their limitations and functionality can affect their role in the consumer market.
+Wearables are becoming more and more popular everyday. The forms of wearable devices are extremely varied. There are wearables for virtually any part of the body: there are headsets, googles, glasses, helmets, shirts, vests, bodysuits, armbands, watches, socks, and shoes \cite{VandricoList}. Several years ago it was believed that head-mounted displays(HDM) were going to become the prevalent form in the wearables market\cite{ultimateWearable}. Now there are a large variety of wearables and other forms such as smartwatches and smartbands holding their own presence in the marketplace. This paper argues that currently HMDs face significant challenges that prevent HDMs from becoming as adopted as widely as it was initially predicted.
+
 \section{Background}
- However, we wish to focus on the wearables that are available to consumers. There are wearables, such as the Brother AiRScouter, which are limited to industrial use. Wearables that are specific to a industry do not face the same usability issues that a wearable aimed at the general public face. For example, a person in industry might be \textit{required} to use a wearable for their job, and if necessary the individual's employer might provide training if the wearable device is difficult to learn. On the other hand, consumers \textit{choose} what wearable devices, based on perceived pragmatic(based on the functionality) and hedonic(based on the aesthetic and social appeal) qualities. Pragmatic qualities include compactness, comprehensibility, ease of use, portability, and interactivity, while hedonic qualities include aesthetic beauty, novelty, pleasure in use, and personalization\cite{UserAcceptance}. One study suggests that  style, price, convenience, and widespread assimilation play a huge role in whether or not will choose to buy a wearable \cite{WhyUsersDont}. These are issues that industrial use wearables do not generally face, and as such we will not consider industrial wearables in this paper. 
+We will first analyze the background of HDM's and why they were considered by many to be the leading contender for the most popular wearable paradigm. In 2001, Starner provided a list of goals for what wearables should be
+\begin{enumerate}
+    \item Persist and provide constant access to information services
+    \item Sense and model context
+    \item Adapt interaction modalities based on the user's context
+    \item Augment and mediate interactions with the user's environment
+\end{enumerate}
+
+In order to \textit{persist and provide constant access to information services}, a wearable must be portable, capable of continuous use, and easily accessible. Starner also added that the device must be physically unobtrusive. A wearable must then be comfortable and discreet. This goal takes into account the dual nature of the wearable both as a computational device and a wearable accessory. Like a watch or a pair of glasses, a wearable must be immediately accessible yet entirely comfortable so that the user is not aware of the device until they need it.  This means that the device will most likely need to be small, lightweight, or otherwise invisible. The wearable can have the form of a familiar accessory such as a pair of glasses or a bracelet or even an article of clothing. The wearable should also be able to discretely interrupt the user in order to give notifications or interact with the user when necessary.
+
+A device that can \textit{sense and model context} is aware of the user's environment and what a user is doing at any given time. The wearable should also be able to tell the user of the wearables status. This means that the wearable could make decisions based on the context. If a device can detect the user's context, it should be able to \textit{adapt its interaction modalities based on the user's context}. This means that the device can determine what form of interaction with the user is more appropriate given the user's context. The wearable should be versatile enough to discretely inform the user of a status during times such as where the user is at meeting and be able to interact more directly when the user during times when the user is available and interactions with the wearable are suitable. In other words, the wearable should know the most appropriate way of interacting with the user at any given time.
+
+Finally, a wearable \textit{augments and mediates interactions with the user's environment} by providing information that is relevant to the user based on their location. Whereas the previous two goals focused on the situational context of the user, this goal focuses on how the wearable environmental context. The wearable could filter it's notifications based on location and it could also provide additional information based on what the user is doing. If the user wishes to find a place to eat, the wearable should provide relevant information about local food establishments near the user's location. 
+
+10 years ago HMDs would seem to be the most obvious form that would satisfy all of these goals. Glasses or any device that could be worn on the user's head would have to be, by necessity, portable and lightweight. Since human beings detect our context primarily through sight, an HMD with a camera would be able to see everything a user saw and detect the user's context in a similar way. The location of the head-mounted display, always in front of the eyes, to the best knowledge of the author, means that information is instantly available to the user. At the time, HMDs seemed like the ideal wearable paradigm, in theory. However, 
+
+ 
+
+ 
+
+
+
+
+
+For the purpose of this paper we will focus on Google Glass, which is the currently the leading, general purpose wearable with a HMD. There exists other 
 
 Before we analyze current wearables, we must first: 1) formally define wearables and 2) define a wearable \textit{should} do.  Wearables themselves are greatly varied in form and function. We must be careful to analyze the limitations that wearables face as a whole and not limit ourselves to a particular type of device such as a smartwatch or a headset. There are wearables for virtually any part of the body: there are headsets, googles, glasses, helmets, shirts, vests, bodysuits, armbands, watches, socks, and shoes \cite{VandricoList}. As such, we must define wearables to cover these and other forms that can arise in the future. Wearables, broadly, are ``body-worn devices, such as clothing and accessories, which integrate computational capabilities to provide specific features to users."\cite{WearableHumanView}. We note that this definition is can include devices such as regular digital wristwatches, step-counters, heart rate monitors, and even ankle-bracelets can be thought of, and are, wearables. However, they represent the most simple type of wearables, those that have a single type of functionality. Just as cellular phones began with simple phone calls and eventually gained more and more functionality, wearables have done the same. As wearables become more versatile and more functional it is of interest to study the limitations of what they can and cannot do. 
 
+As of right now, wearables can be classified into two types: smartphone accessories and highly specialized standalone devices. There is some overlap among these two types; some devices such as the Dash headphones can function be themselves or can be tethered to a smartphone. But by and large there are not any general purpose wearables 
 We will now consider what the \textit{ideal} wearable should do, regardless of form. Starner\cite{starnerChallenges1} provides a list of goals that, while ambitious, are a good standard to strive for. Wearables should:
 \begin{enumerate}
     \item Persist and provide constant access to information services
@@ -30,7 +56,8 @@ We will now consider what the \textit{ideal} wearable should do, regardless of f
     \item Augment and mediate interactions with the user's environment
 \end{enumerate}
 
-In order to \textit{persist and provide constant access to information services}, a wearable must be portable, capable of continuous use, and easily accessible. Starner adds that the device must be physically unobtrusive. A wearable must then be comfortable and discreet. This takes into account the dual nature of the wearable both as a computational device and a wearable accessory. Like a watch or a pair of glasses, a wearable must be immediately accessible yet entirely comfortable so that the user is not aware of the device until they need it.  This means that the device will most likely need to be small, lightweight, or otherwise invisible. The wearable can have the form of a familiar accessory such as a pair of glasses or a bracelet or even an article of clothing. The wearable should also be able to discretely interrupt in order to  
+In order to \textit{persist and provide constant access to information services}, a wearable must be portable, capable of continuous use, and easily accessible. Starner adds that the device must be physically unobtrusive. A wearable must then be comfortable and discreet. This takes into account the dual nature of the wearable both as a computational device and a wearable accessory. Like a watch or a pair of glasses, a wearable must be immediately accessible yet entirely comfortable so that the user is not aware of the device until they need it.  This means that the device will most likely need to be small, lightweight, or otherwise invisible. The wearable can have the form of a familiar accessory such as a pair of glasses or a bracelet or even an article of clothing. The wearable should also be able to discretely interrupt in order to
+  
 \section{Methods}
 \section{Discussion}
 \section{Conclusion}
