@@ -3,21 +3,42 @@ img {
     max-height: 100%;
 }
 
-@font-face{
-    font-family:Drakon;
-    src:url("drakon.ttf");
+h3{
+    font-size: 20px;
 }
 
-h1,.container{
-    background: -webkit-linear-gradient(
-        top,  
-        #4c4c4c 0%,
-        #666666 5%,
-        #474747 12%,
-        #000000 21%,
-        #111111 60%,
-        #2b2b2b 93%,
-        #1c1c1c 96%,
-        #131313 100%);
-    font-family: Drakon;
+/*html, body, #container { 
+    height: 100%;
+    background-color:red;
+}
+body > #container { height: auto; min-height: 100%; }*/
+
+.table-container{
+    padding:5px;
+    border-style: solid;
+    border-width:1px;
+    border-color: gray;
+    border-radius:10px;
+    background-color: whitesmoke;
+}
+
+table.table-bordered{
+    border-style:solid;
+    border-color:gray;
+    border-radius:10px;
+}
+table.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+table.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+
+/* This says any window that is bigger than 700px will have this font.*/
+@media ( min-width: 700px ) {
+  h3 {
+     font-size: 30px;
+  }
 }
