@@ -23,7 +23,7 @@ h3{
     border-radius:10px;
     background-color: whitesmoke;
 }
-
+/* Here is my CSS for my table.*/
 thead{
     display:block;
 }
@@ -33,6 +33,7 @@ tbody {
     overflow-y:scroll; 
     height:300px;
 }
+/*Here ends my CSS for my table.*/
 
 .rounded-container.rtable{
     padding:20px;
