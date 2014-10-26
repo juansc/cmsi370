@@ -11,19 +11,27 @@ h3{
     font-size: 20px;
 }
 
+#back-to-main{
+    margin-top: 20px;
+}
 /*html, body, #container { 
     height: 100%;
     background-color:red;
 }
 body > #container { height: auto; min-height: 100%; }*/
 
-.table-container{
+.rounded-container{
     padding:5px;
     border-style: solid;
     border-width:1px;
     border-color: gray;
     border-radius:10px;
     background-color: whitesmoke;
+}
+
+.rounded-container.rtable{
+    padding:20px;
+    background-color: #FFFFFF;
 }
 
 table.table-bordered{
