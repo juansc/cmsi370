@@ -7,22 +7,17 @@
         <link rel="stylesheet" type="text/css" href="rpg.css">
     </head>
     <body>
-        <section class="container-fluid">
+        <section class="container">
 
             <div class="templates hidden">
                 <table>
                     <tbody>
                         <tr class="character-template">
                             <td>
-                                <img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Black-Widow-icon.png" class="avatar"/>
+                                <img class="avatar" src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Black-Widow-icon.png" class="avatar"/>
                             </td>
                             <td class="name"></td>
-                            <td class="gender"></td>
-                            <td class="class"></td>
                             <td class="level"></td>
-                            <td>
-                                <img src="http://png-3.findicons.com/files/icons/1072/face_avatars/300/a01.png" class="avatar"/>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -44,7 +39,7 @@
                         <div class = "row">
                             <h3 class="text-center">Table of Characters</h3>
                         </div>
-                        <div class = "row table-container" >
+                        <div class = "row table-container pre-scrollable" >
                             <div class="col-xs-6 col-md-6">
                                 <a class="btn btn-info btn-block" type="button" href="home.html">
                                     <span class="glyphicon glyphicon-plus"></span> Add
@@ -58,9 +53,8 @@
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
+                                        <th></th>
                                         <th>Name</th>
-                                        <th>Class</th>
-                                        <th>Gender</th>
                                         <th>Level</th>
                                     </tr>
                                 </thead>
@@ -85,5 +79,6 @@
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="rpg.js"></script>
     </body>
 </html>
