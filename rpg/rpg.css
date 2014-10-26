@@ -14,11 +14,6 @@ h3{
 #back-to-main{
     margin-top: 20px;
 }
-/*html, body, #container { 
-    height: 100%;
-    background-color:red;
-}
-body > #container { height: auto; min-height: 100%; }*/
 
 .rounded-container{
     padding:5px;
@@ -27,6 +22,16 @@ body > #container { height: auto; min-height: 100%; }*/
     border-color: gray;
     border-radius:10px;
     background-color: whitesmoke;
+}
+
+thead{
+    display:block;
+}
+
+tbody {
+    display:block;
+    overflow-y:scroll; 
+    height:300px;
 }
 
 .rounded-container.rtable{
@@ -39,15 +44,6 @@ table.table-bordered{
     border-color:gray;
     border-radius:10px;
 }
-table.border-top-radius(@radius) {
-  border-top-right-radius: @radius;
-   border-top-left-radius: @radius;
-}
-table.border-bottom-radius(@radius) {
-  border-bottom-right-radius: @radius;
-   border-bottom-left-radius: @radius;
-}
-
 /* This says any window that is bigger than 700px will have this font.*/
 @media ( min-width: 700px ) {
   h3 {
