@@ -34,6 +34,7 @@ $(function(){
         $(".character-card").find('.level').text(charInfo['level']);        
         $(".character-card").find('.gender').text(charInfo['gender']);        
         $(".character-card").find('.class').text(charInfo['class']);        
-        $(".character-card").find('.money').text(charInfo['money']);                
+        $(".character-card").find('.money').text(charInfo['money']); 
+                       
     });
 });

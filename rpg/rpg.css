@@ -62,8 +62,8 @@ table.table-bordered{
 
 .inactive-rtable{
     padding:20px;
-    background-color: #666666;
-    color:#888888;
+    background-color: #CCCCCC;
+    color:#AAAAAA;
 }
 /* This says any window that is bigger than 700px will have this font.*/
 @media ( min-width: 700px ) {
