@@ -59,6 +59,12 @@ table.table-bordered{
     border-color:gray;
     border-radius:10px;
 }
+
+.inactive-rtable{
+    padding:20px;
+    background-color: #666666;
+    color:#888888;
+}
 /* This says any window that is bigger than 700px will have this font.*/
 @media ( min-width: 700px ) {
   h3 {
