@@ -33,6 +33,20 @@ tbody {
     overflow-y:scroll; 
     height:300px;
 }
+
+table tbody tr:hover {
+    cursor:pointer;
+    background-color: #C0FFFF;
+}
+
+table tbody tr:active {
+    cursor:pointer;
+    background-color: #80FFFF;
+}
+
+.active-character-row{
+    background-color: #80FFFF;
+}
 /*Here ends my CSS for my table.*/
 
 .rounded-container.rtable{
