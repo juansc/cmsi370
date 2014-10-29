@@ -15,6 +15,14 @@ h3{
     margin-top: 20px;
 }
 
+.interface-container{
+    position:fixed;
+    top:60px;
+    bottom:70px;
+    left:40px;
+    right:40px;
+}
+
 .rounded-container{
     padding:5px;
     border-style: solid;
@@ -23,15 +31,24 @@ h3{
     border-radius:10px;
     background-color: whitesmoke;
 }
+
+.rounded-container.list-container{
+    height:100%;
+}
+
+.rounded-container.character-card{
+    height:100%;
+}
+
 /* Here is my CSS for my table.*/
 thead{
     display:block;
 }
 
 tbody {
-    display:block;
-    overflow-y:scroll; 
     height:300px;
+    display:block;
+    overflow-y:auto;
 }
 
 table tbody tr:hover {
@@ -65,6 +82,14 @@ table.table-bordered{
     background-color: #CCCCCC;
     color:#AAAAAA;
 }
+
+.item-container{
+    margin: 0 auto;
+    width:50%;
+    height:0;
+    padding-bottom: 50%;
+}
+
 /* This says any window that is bigger than 700px will have this font.*/
 @media ( min-width: 700px ) {
   h3 {
