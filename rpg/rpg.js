@@ -78,13 +78,55 @@ $(function() {
     };
 
     $(".edit-text-input-form").blur( function(){
-        $("#save-char-btn").removeClass('disabled');        
+        $("#edit-save-char-btn").removeClass('disabled');        
         $(".edit-text-input-form").each( function(){
-            if($(this).val().localeCompare("") === 0 ){ $("#save-char-btn").addClass("disabled");}
+            if($(this).val().localeCompare("") === 0 ){ $("#edit-save-char-btn").addClass("disabled");}
         });
     });
 
     $(".edit-number-input-form").blur(function(){
         $(this).val( +$(this).val() || 0);
     });
+
+    var updateCharRow = function(){
+        var tr = $(".active-character-row");
+        tr.find(".name").text($(".active-character-row").data('info')['name']);
+        tr.find(".class").text($(".active-character-row").data('info')['class']);
+        tr.find(".gender").text($(".active-character-row").data('info')['gender']);
+        tr.find(".level").text($(".active-character-row").data('info')['level']);
+    };
+
+    var updateCharData = function(){
+        $(".active-character-row").data('info')['name'] = $("#edit-name-input").val();
+        $(".active-character-row").data('info')['money'] = $("#edit-money-input").val();
+        $(".active-character-row").data('info')['gender'] = $("#edit-gender-input option:selected").text();
+        $(".active-character-row").data('info')['level'] = $("#edit-level-input").val();
+        $(".active-character-row").data('info')['class'] = $("#edit-class-input").val();
+    };
+
+    $("#edit-save-char-btn").click(function(){
+        var charId = $(".active-character-row").data('info')['id'];
+        updateCharData();
+        $.ajax({
+            type: 'PUT',
+            url: "http://lmu-diabolical.appspot.com/characters/"+charId,
+            data: JSON.stringify({
+                id: charId,
+                name: $("#edit-name-input").val(),
+                classType: $("#edit-class-input").val(),
+                gender: $("#edit-gender-input option:selected").text(),
+                level: $("#edit-level-input").val(),
+                money: $("#edit-money-input").val()
+            }),
+            contentType: "application/json",
+            dataType: "json",
+            accept: "application/json",
+            success: function (data, textStatus, jqXHR) {
+                console.log("Done: no news is good news.");
+            }
+        });
+        fillCharCard($(".active-character-row").data('info'));
+        updateCharRow();
+    });
+
 });
