@@ -39,11 +39,12 @@ $(function() {
         characterCount = characterCount > 1 ? characterCount - 1 : 0;
         console.log('characterCount is ' + characterCount);
         var rowToRemove = $(".active-character-row");
+        deleteChar(rowToRemove.data('info')['id']);
         var nextActiveRow = rowToRemove.closest('tr').next();
         nextActiveRow.addClass('active-character-row');
         rowToRemove.removeClass('active-character-row').remove();
         var info = nextActiveRow.data('info');
-        if( characterCount === 0 ){
+        if( characterCount === 0 || $('.active-character-row').length === 0 ){
             $('.character-card').remove('rtable');            
             $('.character-card').addClass('inactive-rtable');            
             $('.trash-btn').addClass('disabled');
@@ -64,5 +65,15 @@ $(function() {
         $(".character-card").find('.gender').text(charInfo['gender']);        
         $(".character-card").find('.class').text(charInfo['class']);        
         $(".character-card").find('.money').text(charInfo['money']);         
+    };
+
+    var deleteChar = function( charId ){
+        $.ajax({
+            type: 'DELETE',
+            url: "http://lmu-diabolical.appspot.com/characters/" + charId,
+            success: function (data, textStatus, jqXHR) {
+                console.log("Gone baby gone.");
+            }
+        });
     };
 });
