@@ -20,10 +20,18 @@ $(function() {
                     'level': character.level,
                     'class': character.classType
                 });
+                tr.removeClass("character-template");
                 return tr;
             }));
         }
     );
+
+    var activateModifiers = function(){
+        $('.trash-btn').removeClass('disabled');
+        $('.edit-btn').removeClass('disabled');
+        $('.character-card').addClass('rtable');
+        $('.character-card').removeClass('inactive-rtable');
+    };
 
     $('.edit-btn').click(function(){
         $("#edit-name-input").val( $(".active-character-row").data('info')['name'] );
@@ -34,10 +42,7 @@ $(function() {
     });
 
     $('table').on('click', 'tr' , function (event) {
-        $('.trash-btn').removeClass('disabled');
-        $('.edit-btn').removeClass('disabled');
-        $('.character-card').addClass('rtable');
-        $('.character-card').removeClass('inactive-rtable');
+        activateModifiers();
         $('.active-character-row').removeClass('active-character-row'); 
         $(this).addClass('active-character-row');
         fillCharCard($(this).data('info'));                
@@ -92,7 +97,14 @@ $(function() {
         });
     });
 
-    $(".edit-number-input-form").blur(function(){
+    $(".create-text-input-form").blur( function(){
+        $("#create-save-char-btn").removeClass('disabled');        
+        $(".create-text-input-form").each( function(){
+            if($(this).val().localeCompare("") === 0 ){ $("#create-save-char-btn").addClass("disabled");}
+        });
+    });
+
+    $(".number-input-form").blur(function(){
         $(this).val( +$(this).val() || 0);
     });
 
@@ -141,4 +153,58 @@ $(function() {
         $("#edit-money-input").val(0);
     });
 
+
+    var appendCharRow = function( charId ){
+        $.getJSON(
+            charId,
+            function (character) {
+                characterCount++;
+                var tr = $(".character-template").clone();
+                tr.find(".name").text(character.name);
+                tr.find(".class").text(character.classType);
+                tr.find(".gender").text(character.gender);
+                tr.find(".level").text(character.level); 
+                tr.data('info',{
+                    'id':character.id,
+                    'name': character.name,
+                    'money': character.money,
+                    'gender': character.gender,
+                    'level': character.level,
+                    'class': character.classType
+                });
+                activateModifiers();
+                $('.active-character-row').removeClass('active-character-row'); 
+                tr.addClass("active-character-row")
+                tr.removeClass("character-template");                                    
+                $("tbody").append(tr);
+            }
+        );
+        fillCharCard($(this).data('info'));        
+    };
+
+    $("#create-save-char-btn").click(function(){
+        $.ajax({
+            type: 'POST',
+            url: "http://lmu-diabolical.appspot.com/characters",
+            data: JSON.stringify({
+                name: $("#create-name-input").val(),
+                classType: $("#create-class-input").val(),
+                gender: $("#create-gender-input option:selected").text(),
+                level: $("#create-level-input").val(),
+                money: $("#create-money-input").val()
+            }),
+            contentType: "application/json",
+            dataType: "json",
+            accept: "application/json",
+            complete: function (jqXHR, textStatus) {
+                appendCharRow(jqXHR.getResponseHeader("Location"));
+            }
+        });
+        /*fillCharCard($(".active-character-row").data('info'));
+        updateCharRow();
+        $("#edit-name-input").val("");
+        $("#edit-class-input").val("");
+        $("#edit-level-input").val(0);
+        $("#edit-money-input").val(0);*/
+    });
 });
