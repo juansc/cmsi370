@@ -23,6 +23,7 @@ $(function() {
                 tr.removeClass("character-template");
                 return tr;
             }));
+            $(".ajax-feedback").addClass("hidden");
         }
     );
 
@@ -177,12 +178,20 @@ $(function() {
                 tr.addClass("active-character-row")
                 tr.removeClass("character-template");                                    
                 $("tbody").append(tr);
+                fillCharCard(tr.data('info'));
             }
         );
-        fillCharCard($(this).data('info'));        
+        $(".add-btn").removeClass("disabled");
+        $("#create-name-input").val("");
+        $("#create-class-input").val("");
+        $("#create-level-input").val(0);
+        $("#create-money-input").val(0);
+        $("#create-save-char-btn").addClass("disabled");
+        $(".ajax-feedback").addClass("hidden");        
     };
 
     $("#create-save-char-btn").click(function(){
+        $(".ajax-feedback").removeClass("hidden");        
         $.ajax({
             type: 'POST',
             url: "http://lmu-diabolical.appspot.com/characters",
@@ -200,11 +209,6 @@ $(function() {
                 appendCharRow(jqXHR.getResponseHeader("Location"));
             }
         });
-        /*fillCharCard($(".active-character-row").data('info'));
-        updateCharRow();
-        $("#edit-name-input").val("");
-        $("#edit-class-input").val("");
-        $("#edit-level-input").val(0);
-        $("#edit-money-input").val(0);*/
+        $(".add-btn").addClass("disabled");
     });
 });

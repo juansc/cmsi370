@@ -90,6 +90,19 @@ table.table-bordered{
     padding-bottom: 50%;
 }
 
+.ajax-feedback{
+
+    -webkit-animation: fade-blink 0.5s linear 0s infinite alternate;
+       -moz-animation: fade-blink 0.5s linear 0s infinite alternate;
+         -o-animation: fade-blink 0.5s linear 0s infinite alternate;
+            animation: fade-blink 0.5s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
+   @-moz-keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
+     @-o-keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
+        @keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
+
 /* This says any window that is bigger than 700px will have this font.*/
 @media ( min-width: 700px ) {
   h3 {
