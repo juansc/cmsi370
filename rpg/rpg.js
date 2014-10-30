@@ -35,7 +35,7 @@ $(function() {
         fillCharCard($(this).data('info'));                
     });
 
-    $('.trash-btn').click( function(){
+    $('#delete-char-btn').click( function(){
         characterCount = characterCount > 1 ? characterCount - 1 : 0;
         console.log('characterCount is ' + characterCount);
         var rowToRemove = $(".active-character-row");
