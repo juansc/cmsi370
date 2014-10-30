@@ -25,6 +25,14 @@ $(function() {
         }
     );
 
+    $('.edit-btn').click(function(){
+        $("#edit-name-input").val( $(".active-character-row").data('info')['name'] );
+        $("#edit-class-input").val( $(".active-character-row").data('info')['class'] );
+        $("#edit-gender-input").val( $(".active-character-row").data('info')['gender']);        
+        $("#edit-level-input").val( $(".active-character-row").data('info')['level'] );
+        $("#edit-money-input").val( $(".active-character-row").data('info')['money'] );        
+    });
+
     $('table').on('click', 'tr' , function (event) {
         $('.trash-btn').removeClass('disabled');
         $('.edit-btn').removeClass('disabled');
@@ -127,6 +135,10 @@ $(function() {
         });
         fillCharCard($(".active-character-row").data('info'));
         updateCharRow();
+        $("#edit-name-input").val("");
+        $("#edit-class-input").val("");
+        $("#edit-level-input").val(0);
+        $("#edit-money-input").val(0);
     });
 
 });
