@@ -87,6 +87,52 @@
               </div>
             </div>            
 
+            <!--New character modal-->
+            <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Create New Character</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Name:</label>
+                        <input class="col-xs-4 col-md-4 create-text-input-form" type="text" id="create-name-input" value="">
+                        <br><br>
+                    </div class="row">
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Level:</label>
+                        <input class="col-xs-4 col-md-4 create-number-input-form" type="number" id="create-level-input" step="1" value="0">
+                        <br><br>
+                    </div class="row">
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Class:</label>
+                        <input class="col-xs-4 col-md-4 create-text-input-form" type="text" id="create-class-input" value="">
+                        <br><br>
+                    </div class="row">
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Gender:</label>
+                        <select id="create-gender-input">
+                                <option value="MALE" selected>MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                        </select>
+                        <br><br>
+                    </div class="row">
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Money:</label>
+                        <input class="col-xs-4 col-md-4 create-number-input-form" type="number" id="create-money-input" step="1" value="0">
+                        <br><br>
+                    </div class="row">                                                                                
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button id="create-save-char-btn" type="button" class="btn btn-primary disabled" data-dismiss="modal">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>  
+
             <div class="row">
                 <div class="col-xs-2 col-md-2 header">
                     <a id="back-to-main" class="btn btn-info" type="button" href="home.html">
@@ -104,7 +150,7 @@
                     </div>
                     <div class = "row" >
                         <div class="col-xs-4 col-md-4">
-                            <a class="btn btn-info btn-block add-btn" type="button" href="home.html">
+                            <a class="btn btn-info btn-block add-btn" type="button" data-toggle="modal" data-target="#createModal">
                                 <span class="glyphicon glyphicon-plus"></span> Add
                             </a>
                         </div>
