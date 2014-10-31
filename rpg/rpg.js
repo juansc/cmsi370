@@ -238,6 +238,7 @@ $(function() {
     });
 
     $("#item-btn").click(function(){
+        var newItem;
         $.getJSON(
             "http://lmu-diabolical.appspot.com/items/spawn",
             {
@@ -246,8 +247,29 @@ $(function() {
             },
             function (item) {
                 console.log(item);
+                var weaponsList = [
+                    "Longsword",
+                    "Mace",
+                    "Wand",
+                    "Greatsword",
+                    "Dagger",
+                    "Composite Bow",
+                    "War Hammer",
+                    "Gauntlet"
+                ];
+                var weaponName = weaponsList[Math.floor(Math.random()*weaponsList.length)];
+                $(".item-description").find('#weapon-name').text(weaponName);
+                $(".item-description").find('.level').text(item.level);
+                $(".item-description").find('.absorption').text(parseFloat(item.absorption).toFixed(2));
+                $(".item-description").find('.atkspeed').text(parseFloat(item.atkspeed).toFixed(2));
+                $(".item-description").find('.blockchance').text(parseFloat(item.blockchance).toFixed(2));
+                $(".item-description").find('.critchance').text(parseFloat(item.critchance).toFixed(2));
+                $(".item-description").find('.defense').text(parseFloat(item.defense).toFixed(2));
+                $(".item-description").find('.maxdamage').text(parseFloat(item.maxdamage).toFixed(2));
+                $(".item-description").find('.mindamage').text(parseFloat(item.mindamage).toFixed(2));                
+                $('#itemModal').modal('show');
             }
-        );
+        );                       
     });
 
 });

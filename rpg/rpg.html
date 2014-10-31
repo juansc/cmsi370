@@ -56,7 +56,7 @@
                     <h4>Deleting A Character</h4>
                     <p>Select the character you wish to delete. When a character is selected its row will be blue and the character card will display the character's information. Click on the Delete button. A dialog box will ask you if you're sure you want to delete your character. Click Yes to delete and No if you wanna save your poor character.</p>
                     <h4>Items</h4>
-                    <p>Each character can equip a single item. You can click on a character's screen and </p>                  
+                    <p>You (the user) can receive an item! Unfortunately you have bi</p>                  
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
@@ -64,6 +64,57 @@
                 </div>
               </div>
             </div>
+
+            <!--New Character Modal-->
+            <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Congratulations!!!</h4>
+                  </div>
+                  <div class="modal-body item-description">
+                    <p>You got a <span id="weapon-name"></span>!<p>
+                    <p>It has the following attributes:</p>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Level:</label>
+                        <span class="col-xs-8 col-md-8 level"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Max Damage:</label>
+                        <span class="col-xs-8 col-md-8 maxdamage"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Min Damage:</label>
+                        <span class="col-xs-8 col-md-8 mindamage"></span>
+                    </div>   
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Absorption:</label>
+                        <span class="col-xs-8 col-md-8 absorption"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Attack Speed:</label>
+                        <span class="col-xs-8 col-md-8 atkspeed"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Block Chance(%):</label>
+                        <span class="col-xs-8 col-md-8 blockchance"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Critical Chance(%):</label>
+                        <span class="col-xs-8 col-md-8 critchance"></span>
+                    </div>
+                    <div class="row">
+                        <label class="col-xs-4 col-md-4">Defense:</label>
+                        <span class="col-xs-8 col-md-8 defense"></span>
+                    </div>                                                                                              
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>            
 
             <!--Character Edit Modal-->
             <div class="modal fade" id="customizeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -248,8 +299,6 @@
                         <label class="col-xs-4 col-md-4">Money:</label>
                         <span class="col-xs-8 col-md-8 money"></span>
                     </p>
-                    <div class=" row rounded-container item-container">Item will go here.
-                    </div>
                     <div class="row top-buffer">
                         <div class="col-xs-6-offset-3 col-md-6-offset-3 text-center">
                             <a id="item-btn" class="btn btn-primary disabled" type="button">
