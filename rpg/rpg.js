@@ -1,12 +1,9 @@
 $(function() {
 
-    var characterCount = 0;
-
     $.getJSON(
         "http://lmu-diabolical.appspot.com/characters",
         function (characters) {
             $("tbody").append(characters.map(function (character) {
-                characterCount++;
                 var tr = $(".character-template").clone();
                 tr.find(".name").text(character.name);
                 tr.find(".class").text(character.classType);
@@ -50,7 +47,6 @@ $(function() {
     });
 
     $('#delete-char-btn').click( function(){
-        characterCount = characterCount > 1 ? characterCount - 1 : 0;
         var rowToRemove = $(".active-character-row");
         deleteChar(rowToRemove.data('info')['id']);
         var nextActiveRow = rowToRemove.closest('tr').next();
@@ -91,14 +87,14 @@ $(function() {
         });
     };
 
-    $(".edit-text-input-form").blur( function(){
+    $(".edit-text-input-form").keyup( function(){
         $("#edit-save-char-btn").removeClass('disabled');        
         $(".edit-text-input-form").each( function(){
             if($(this).val().localeCompare("") === 0 ){ $("#edit-save-char-btn").addClass("disabled");}
         });
     });
 
-    $(".create-text-input-form").blur( function(){
+    $(".create-text-input-form").keyup( function(){
         $("#create-save-char-btn").removeClass('disabled');        
         $(".create-text-input-form").each( function(){
             if($(this).val().localeCompare("") === 0 ){ $("#create-save-char-btn").addClass("disabled");}
@@ -159,7 +155,6 @@ $(function() {
         $.getJSON(
             charId,
             function (character) {
-                characterCount++;
                 var tr = $(".character-template").clone();
                 tr.find(".name").text(character.name);
                 tr.find(".class").text(character.classType);
@@ -177,7 +172,7 @@ $(function() {
                 $('.active-character-row').removeClass('active-character-row'); 
                 tr.addClass("active-character-row")
                 tr.removeClass("character-template");                                    
-                $("tbody").append(tr);
+                $("tbody").prepend(tr);
                 fillCharCard(tr.data('info'));
             }
         );
@@ -187,7 +182,8 @@ $(function() {
         $("#create-level-input").val(0);
         $("#create-money-input").val(0);
         $("#create-save-char-btn").addClass("disabled");
-        $(".ajax-feedback").addClass("hidden");        
+        $(".ajax-feedback").addClass("hidden");
+        $("tbody").scrollTop('0');
     };
 
     $("#create-save-char-btn").click(function(){
