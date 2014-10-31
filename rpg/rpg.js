@@ -25,10 +25,19 @@ $(function() {
     );
 
     var activateModifiers = function(){
-        $('.trash-btn').removeClass('disabled');
-        $('.edit-btn').removeClass('disabled');
-        $('.character-card').addClass('rtable');
+        $('.trash-btn,.edit-btn,#item-btn').removeClass('disabled');
         $('.character-card').removeClass('inactive-rtable');
+    };
+
+    var cleanUpAfterNewChar = function(){
+        $(".add-btn").removeClass("disabled");
+        $("#create-name-input").val("");
+        $("#create-class-input").val("");
+        $("#create-level-input").val(0);
+        $("#create-money-input").val(0);
+        $("#create-save-char-btn").addClass("disabled");
+        $(".ajax-feedback").addClass("hidden");
+        $("tbody").scrollTop('0');
     };
 
     $('.edit-btn').click(function(){
@@ -54,10 +63,8 @@ $(function() {
         rowToRemove.removeClass('active-character-row').remove();
         var info = nextActiveRow.data('info');
         if( $('#char-table >tbody >tr').length === 0 || $('.active-character-row').length === 0 ){
-            $('.character-card').remove('rtable');            
             $('.character-card').addClass('inactive-rtable');            
-            $('.trash-btn').addClass('disabled');
-            $('.edit-btn').addClass('disabled');            
+            $('.trash-btn,.edit-btn,#item-btn').addClass('disabled');
             info = {
                 'name':'',
                 'level':'',
@@ -176,14 +183,7 @@ $(function() {
                 fillCharCard(tr.data('info'));
             }
         );
-        $(".add-btn").removeClass("disabled");
-        $("#create-name-input").val("");
-        $("#create-class-input").val("");
-        $("#create-level-input").val(0);
-        $("#create-money-input").val(0);
-        $("#create-save-char-btn").addClass("disabled");
-        $(".ajax-feedback").addClass("hidden");
-        $("tbody").scrollTop('0');
+        cleanUpAfterNewChar();
     };
 
     $("#create-save-char-btn").click(function(){
@@ -207,4 +207,47 @@ $(function() {
         });
         $(".add-btn").addClass("disabled");
     });
+
+    $("#spawn-char-btn").click(function(){
+        $(".ajax-feedback").removeClass("hidden");                
+        $.getJSON(
+            "http://lmu-diabolical.appspot.com/characters/spawn",
+            function (character) {
+                var tr = $(".character-template").clone();
+                tr.find(".name").text(character.name);
+                tr.find(".class").text(character.classType);
+                tr.find(".gender").text(character.gender);
+                tr.find(".level").text(character.level); 
+                tr.data('info',{
+                    'id':character.id,
+                    'name': character.name,
+                    'money': character.money,
+                    'gender': character.gender,
+                    'level': character.level,
+                    'class': character.classType
+                });
+                activateModifiers();
+                $('.active-character-row').removeClass('active-character-row'); 
+                tr.addClass("active-character-row")
+                tr.removeClass("character-template");                                    
+                $("tbody").prepend(tr);
+                fillCharCard(tr.data('info'));
+                cleanUpAfterNewChar();
+            }        
+        );
+    });
+
+    $("#item-btn").click(function(){
+        $.getJSON(
+            "http://lmu-diabolical.appspot.com/items/spawn",
+            {
+                level: 50,
+                slot: "body"
+            },
+            function (item) {
+                console.log(item);
+            }
+        );
+    });
+
 });

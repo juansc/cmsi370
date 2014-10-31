@@ -11,17 +11,16 @@ h3{
     font-size: 20px;
 }
 
-#back-to-main, #help-btn{
-    margin-top: 20px;
+.top-buffer{
+    margin-top: 20px;    
 }
 
-.interface-container{
-    position:fixed;
+/*.interface-container{
     top:60px;
-    bottom:70px;
-    left:40px;
-    right:40px;
-}
+    /*bottom:70px;
+    left:0px;
+    /*right:40px;
+}*/
 
 .rounded-container{
     padding:5px;
@@ -64,17 +63,16 @@ table tbody tr:active {
 .active-character-row{
     background-color: #80FFFF;
 }
-/*Here ends my CSS for my table.*/
-
-.rounded-container.rtable{
-    padding:20px;
-    background-color: #FFFFFF;
-}
 
 table.table-bordered{
     border-style:solid;
     border-color:gray;
     border-radius:10px;
+}
+
+.rtable{
+    padding:20px;
+    background-color: #FFFFFF;
 }
 
 .inactive-rtable{
