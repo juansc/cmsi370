@@ -11,6 +11,15 @@ h3{
     font-size: 20px;
 }
 
+.card-text{
+    transition: 0.5s;
+};
+
+.card-text:hover{
+    font-size:24px;
+};
+
+
 .top-buffer{
     margin-top: 20px;    
 }
@@ -31,13 +40,13 @@ h3{
     background-color: whitesmoke;
 }
 
-.rounded-container.list-container{
+/*.rounded-container.list-container{
     height:100%;
-}
+}*/
 
-.rounded-container.character-card{
+/*.rounded-container.character-card{
     height:100%;
-}
+}*/
 
 /* Here is my CSS for my table.*/
 thead{
