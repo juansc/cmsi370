@@ -2,43 +2,51 @@
 <hmtl>
     <head>
         <meta charset="UTF-8">
-        <title>Intro for Bootstrap</title>
-
-
-
+        <title>Login</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="home.css">        
     </head>
     <body>
+
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">User Sign-In</h4>
+              </div>
+              <div class="modal-body">
+                Are you sure you wish to delete this character?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="delete-char-btn" type="button" class="btn btn-primary" data-dismiss="modal">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <section class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-8 col-md-offset-2">
-                    <h1 class="text-center">Diabolical Game</h1>
+            <div class="row login-container">
+                <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
+                    <p class="lead text-center">Welcome to Diabolical Character Customization!</p>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3 col-md-6 col-md-offset-3 text-center top-buffer">
+                            <a id="logout" class="btn btn-info btn-lg btn-block" type="button" data-toggle="modal" data-target="#signInModal">
+                                Log In
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3 col-md-6 col-md-offset-3 text-center top-buffer">
+                            <a id="logout" class="btn btn-primary btn-lg btn-block" type="button" data-toggle="modal" data-target="#RegisterModal">
+                                New User
+                            </a>
+                        </div>                        
+                    </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-xs-6 col-md-4 col-md-offset-1">New Game</div>
-                <div class="col-xs-6 col-md-4 col-md-offset-2">
-                    <p>    
-                        <span class="glyphicon glyphicon-fire"></span>
-                        Nu Metal
-                    </p>
-                   <ul class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Messages</a></li>
-                    </ul> 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-6 col-md-4 col-md-offset-1">Space Enough to Grow</div>
-                <div class="col-xs-6 col-md-4 col-md-offset-2">Would You Still Be There</div>
-            </div>            
-
         </section>
-
-
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
