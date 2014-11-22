@@ -11,15 +11,6 @@ h3{
     font-size: 20px;
 }
 
-.card-text{
-    transition: 0.5s;
-};
-
-.card-text:hover{
-    font-size:24px;
-};
-
-
 .top-buffer{
     margin-top: 20px;    
 }
@@ -87,7 +78,7 @@ table.table-bordered{
 .inactive-rtable{
     padding:20px;
     background-color: #CCCCCC;
-    color:#AAAAAA;
+    /*color:#AAAAAA;*/
 }
 
 .item-container{
@@ -109,6 +100,15 @@ table.table-bordered{
    @-moz-keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
      @-o-keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
         @keyframes fade-blink { from { color:#777777; } to { color:#FFFFFF; }  }
+
+
+.card-text .text{
+    transition: 1s;
+};
+
+.character-card:hover .text{
+    font-size:24px;
+};
 
 /* This says any window that is bigger than 700px will have this font.*/
 @media ( min-width: 700px ) {
