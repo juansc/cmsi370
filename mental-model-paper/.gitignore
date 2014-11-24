@@ -1,6 +1,6 @@
 # Ignore these from LaTeX compilation
 *.log
-*.pdf
+Mental\ Model\ Wearables.pdf
 *.gz
 *.aux
 *.blg
