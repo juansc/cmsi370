@@ -23,11 +23,13 @@
                 <img src="http://icons.iconarchive.com/icons/hopstarter/face-avatars/256/Female-Face-FI-2-icon.png" class="female avatar">
             </div>
             <!--Character Deletion Modal-->
+            <!-- JD: 4 -->
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <!-- JD: 2 -->
                     <h4 class="modal-title" id="myModalLabel">Delete a Character</h4>
                   </div>
                   <div class="modal-body">
@@ -55,6 +57,8 @@
                     <p>Click on the add button on the character list. You can create a custom character of your choosing or you can choose to spawn a random character into your list.</p>
                     <h4>Editing a Character</h4>
                     <p>Make sure the character is selected. When a character is selected its row will be blue and the character card will display the character's information. If you click the Edit button a dialog box will appear that will let you change the character's attributes.
+                    <!-- JD: 7 ...if the p's did not space properly for you, you should
+                                  have customized them in rpg.css instead of inserting br's. -->
                     <br><br>Once you have finished making changes, press Save. Press Cancel to not save the changes you made.</p>                    
                     <h4>Deleting A Character</h4>
                     <p>Select the character you wish to delete. When a character is selected its row will be blue and the character card will display the character's information. Click on the Delete button. A dialog box will ask you if you're sure you want to delete your character. Click Yes to delete and No if you wanna save your poor character.</p>
@@ -74,6 +78,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <!-- JD: 3 -->
                     <h4 class="modal-title" id="myModalLabel">Congratulations!!!</h4>
                   </div>
                   <div class="modal-body item-description">
@@ -146,16 +151,17 @@
                     <div class="row">
                         <label class="col-xs-4 col-md-4">Gender:</label>
                         <select id="edit-gender-input">
+                          <!-- JD: 4 -->
                                 <option value="MALE" selected>MALE</option>
                                 <option value="FEMALE">FEMALE</option>
                         </select>
-                        <br><br>
+                        <br><br> <!-- JD: 7 ...Check out the form-horizontal class in Bootstrap docs -->
                     </div class="row">
                     <div class="row">
                         <label class="col-xs-4 col-md-4">Money:</label>
                         <input class="col-xs-4 col-md-4 number-input-form" type="number" id="edit-money-input" step="1" value="0">
                         <br><br>
-                    </div class="row">                                                                                
+                    </div class="row"> <!-- JD: 9 -->
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -166,6 +172,11 @@
             </div>            
 
             <!--New character modal-->
+            <!-- JD: 8 ...This is a judgment call, but typically new and edit dialogs are the same
+                       except that new starts empty but edit starts with a pre-existing object.
+                       JavaScript code can invoke the same dialog element but adjust accordingly.
+                       Copied like this, you'd have to edit twice whenever you need to revise
+                       the dialog interface. -->
             <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -173,11 +184,12 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title" id="myModalLabel">Create New Character</h4>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body"> <!-- JD: Look up form-horizontal for this. -->
                     <div class="row">
+                      <!-- JD: 4 -->
                         <label class="col-xs-4 col-md-4">Name:</label>
                         <input class="col-xs-4 col-md-4 create-text-input-form" type="text" id="create-name-input" value="">
-                        <br><br>
+                        <br><br> <!-- JD: 7 (similarly below) -->
                     </div class="row">
                     <div class="row">
                         <label class="col-xs-4 col-md-4">Level:</label>
@@ -192,16 +204,17 @@
                     <div class="row">
                         <label class="col-xs-4 col-md-4">Gender:</label>
                         <select id="create-gender-input">
+                          <!-- JD: 4 -->
                                 <option value="MALE" selected>MALE</option>
                                 <option value="FEMALE">FEMALE</option>
                         </select>
                         <br><br>
-                    </div class="row">
+                    </div class="row"> <!-- JD: 9 -->
                     <div class="row">
                         <label class="col-xs-4 col-md-4">Money:</label>
                         <input class="col-xs-4 col-md-4 number-input-form" type="number" id="create-money-input" step="1" value="0">
                         <br><br>
-                    </div class="row">                                                                                
+                    </div class="row"> <!-- JD: 8 -->
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -274,9 +287,9 @@
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-6">
-                   <div class="characterscreen">
+                   <div class="characterscreen"> <!-- JD: character-screen would be more readable. -->
                         <img src="http://potshot.files.wordpress.com/2007/12/potbschar2.png" 
-                        alt="Character Preview" max-width:100%; max-height:100%;>
+                        alt="Character Preview" max-width:100%; max-height:100%;> <!-- JD: 7 -->
                     </div>
                 </div>
                 <div class="col-xs-3 col-md-3 rounded-container rtable inactive-rtable character-card">
