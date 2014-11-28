@@ -41,7 +41,7 @@ The secondary screen is almost identical to the main screen. However, the constr
 The device has the menu interface that exists in tablets and smartphones. The main screen as well as the secondary screen have on-screen buttons which have a Back button, Home Button, and Search Button. When it came time to choose between capacitive and on-screen buttons, the design choice became on-screen for two reasons. One, since the the device two large screens, each one would need a set of capacitive buttons which would complicate the design. Two, capacitive buttons are always on, which make users prone to accidentally hitting the buttons when viewing videos or pressing buttons which are very close to the capacitive buttons. On-screen buttons, on the other hand, can be customized by users and positioned wherever the user chooses. This would allow right-handed and left-handed users to use the device with the same ease. In fact, the device's settings can be changed for right-handedness and left-handedness. In this way, the device would be as accessible to as many people as possible.
 
 \subsection{Hardware Buttons}
-The device has only three buttons. These are always found on the side of the device which faces the user's wrist. Most watches and wristwork devices already have buttons on the side of the device, so my design takes advantage of the cultural affordances associated with wrist-worn objects. The device has a Sleep/Wake button and two brightness buttons which are used to calibrate the brightness of the device. I chose this based on the physical constraint of using the device where only one hand is available. It is much easier for the opposite hand to access the side of the device closest to the wrist. It is much more comfortable for the user to access buttons this way, and doing so does not obstruct the screen, which is important when the user is trying to calibrate the screen's brightness.
+The device has only three buttons. These are always found on the side of the device which faces the user's wrist. Most watches and wristwork devices already have buttons on the side of the device, so my design takes advantage of the cultural affordances associated with wrist-worn objects. The device has a Sleep/Wake button and two brightness buttons which are used to calibrate the brightness of the device. I chose this based on the physical constraint of using the device where only one hand is available. It is much easier for the opposite hand to access the side of the device closest to the wrist. It is much more comfortable for the user to access buttons this way, and doing so does not obstruct the screen, which is important when the user is trying to calibrate the screen's brightness. 
 
 The design of using hardware buttons came from need to having buttons for actions that must by easily accessible regardless of the state of the device. The choice for the Sleep/Wake button is obvious; all portable devices(to the best knowledge of the author) make use of this button. The brightness of the screen is equally important, especially in the case of a wearable device. In most, if not all, smartphones and smartwatches, the brightness settings can only be adjusted from the user's screen. That is, if the user needs to make the screen brighter because he has trouble seeing the screen, he must first navigate through the devices menus, go to the brightness settings, and then change the brightness. This is, frankly, ridiculous. By making the brightness of the screen accessible from two hardware buttons, the user can change the brightness of the screen at any moment without actually interacting with the screen itself.
 
@@ -49,11 +49,10 @@ The brightness buttons swap functions depending on the handedness of the individ
 
 \section{Usage Scenarios}
 \subsubsection{Notifications}
-Most smartwatches serve to send users notifications from their phones. This device can also alert the user to notifications using the Notification Screen. The notification screen, like the main screen, only supports a horizontal orientation, since the physical constraint of the human arm would make it uncomfortable for users view the notification screen vertically. 
+Most smartwatches serve to send users notifications from their phones. This device can also alert the user to notifications on the main screen. When the device receives a notification, it vibrates twice in rapid succession in order to alert the user. However, the device will not wake up until it perceives that the user is looking at it. It does this by using its accelerator and gyroscope to detect if the user is holding their hand as if looking at their a watch. This is so the device is the least intrusive as possible. In this way, the device won't flash possibly sensitive information to other people. Once the user is looking at the device, the main screen becomes active and shows a queue of notifications that the user hasn't seen ***include picture here\ref{}. If the user wishes, they can dismiss notifications by pressing the white x on the notification. If the user wishes to unlock the device, she can drag the key icon towards the lock on the other side of the screen and unlock the device. This lock screen is the same screen that a user sees right after Waking the device using the Sleep/Wake button. The only difference is that the the screen automatically activates when the device receives a notification. 
 
-The notification screen is split into two columns. The left column contains the notification that set off the notification. To right column has a queue of recent notifications.  The user can scroll on this queue to see rows containing icons for email, text messages, and other notifications. When the device wishes to notify the user of a notification, the device vibrates to let the user know a message was sent. The notification screen lights up 
-
-
+\subsubsection{Texting}
+My proposed device borrows heavily from modern smartphones. One of the ways that my device borrows heavily from pre-existing software is the way that my device manages text input. My device will make use of the Go keyboard. The most important factor for choosing Go is that GO requires only a single finger in order to type in text. Users of the device can only use one of their hands. Go keyboards offer a decent degree of accuracy(9.6\%), has a high efficiency(14.18 words per minute) and have a high degree of user satisfaction(SUS score of 74)\ref{}.  
 
 
 Here be the list
@@ -64,12 +63,6 @@ Talk about camera.
 
 Talk about manual buttons.
 
-\section{Design Rationale} 
-
-
-\section{Advantages of Interface}
-
-\section{Uses}
 \section{Issues}
 \section{User Response Predictions}
 Possible drawbacks: discomfort, super expensive, battery life, device getting really hot. Not being discrete.
