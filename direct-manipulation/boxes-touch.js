@@ -10,6 +10,7 @@ var BoxesTouch = {
             // Event handler setup must be low-level because jQuery
             // doesn't relay touch-specific event properties.
             .each(function (index, element) {
+                element.addEventListener("touchstart", BoxesTouch.startDraw, false);                
                 element.addEventListener("touchmove", BoxesTouch.trackDrag, false);
                 element.addEventListener("touchend", BoxesTouch.endDrag, false);
             })
@@ -25,6 +26,25 @@ var BoxesTouch = {
         BoxesTouch.bottomBound = $("#drawing-area").height() + $("#drawing-area").offset().top;
     },
 
+    startDraw: function (event) {
+        $.each(event.changedTouches, function (index, touch) {
+            ///console.log(touch);
+            touch.anchorX = touch.pageX;
+            touch.anchorY = touch.pageY;
+            touch.drawingBox = $("<div></div>")
+                .appendTo($("#drawing-area"))
+                .addClass("box")
+                .offset({ left: touch.pageX, top: touch.pageY });
+            BoxesTouch.setupDragState(touch.target.drawingBox);         
+        });
+    },
+
+    setupDragState: function (element) {
+        element
+            .unbind("touchstart")
+            .unbind("touchmove")
+            .unbind("touchend");        
+    },
     /**
      * Tracks a box as it is rubberbanded or moved across the drawing area.
      */
@@ -32,7 +52,18 @@ var BoxesTouch = {
     trackDrag: function (event) {
         $.each(event.changedTouches, function (index, touch) {
             // Don't bother if we aren't tracking anything.
-            if (touch.target.movingBox) {
+            //console.log(touch);
+            if (touch.drawingBox) {
+                var newOffset = {
+                    left: (touch.anchorX < touch.pageX) ? touch.anchorX : touch.pageX,
+                    top: (touch.anchorY < touch.pageY) ? touch.anchorY : touch.pageY
+                };
+
+                touch.drawingBox
+                    .offset(newOffset)
+                    .width(Math.abs(touch.pageX - touch.anchorX))
+                    .height(Math.abs(touch.pageY - touch.anchorY));
+            }else if (touch.target.movingBox) {
                 // Mark it if out of bounds.
                 if(BoxesTouch.isOutOfBounds(touch.target.movingBox)){ 
                     touch.target.movingBox.addClass("box-out-of-bounds");
@@ -57,10 +88,14 @@ var BoxesTouch = {
      */
     endDrag: function (event) {
         $.each(event.changedTouches, function (index, touch) {
-            if (touch.target.movingBox) {
-                if(BoxesTouch.isOutOfBounds(touch.target.movingBox)){
-                    touch.target.movingBox.remove();
-                }
+            if (touch.drawingBox) {
+                console.log(touch);
+                touch.drawingBox.addEventListener("touchstart", BoxesTouch.startMove, false);
+                touch.drawingBox.addEventListener("touchend", BoxesTouch.unhighlight, false);
+                touch.target = null;
+            }else if (touch.target.movingBox) {
+                // If out of bounds
+                if(BoxesTouch.isOutOfBounds(touch.target.movingBox)) touch.target.movingBox.remove();
                 // Change state to "not-moving-anything" by clearing out
                 // touch.target.movingBox. 
                 touch.target.movingBox = null;
