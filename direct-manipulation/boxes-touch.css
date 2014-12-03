@@ -11,6 +11,12 @@
     position: absolute;
 }
 
+.new-box {
+    box-shadow: 0px 0px 6px #FF9933;
+    -moz-box-shadow: 0px 0px 6px #FF9933;
+    -webkit-box-shadow: 0px 0px 6px #FF9933;
+}
+
 .box-highlight {
     box-shadow: 0px 0px 6px #88F;
     -moz-box-shadow: 0px 0px 6px #88F;
