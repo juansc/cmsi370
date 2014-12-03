@@ -34,16 +34,9 @@ var BoxesTouch = {
                 .appendTo($("#drawing-area"))
                 .addClass("box new-box")
                 .offset({ left: touch.pageX, top: touch.pageY });
-            BoxesTouch.setupDragState($(touch.drawing));
         });
     },
 
-    setupDragState: function (element) {
-        element
-            .unbind("touchstart")
-            .unbind("touchmove")
-            .unbind("touchend");        
-    },
     /**
      * Tracks a box as it is rubberbanded or moved across the drawing area.
      */
@@ -90,12 +83,11 @@ var BoxesTouch = {
     endDrag: function (event) {
         $.each(event.changedTouches, function (index, touch) {
             if (touch.drawingBox) {
-                $(touch.drawingBox).bind("touchstart", BoxesTouch.startMove, false);
-                $(touch.drawingBox).bind("touchend", BoxesTouch.unhighlight, false);
-                $(touch.drawingBox).removeClass("new-box");
+                BoxesTouch.finishedNewBox($("#drawing-area"));
                 touch.drawingBox = null;
             }else if (touch.target.movingBox) {
                 // If out of bounds, remove.
+                console.log(touch.target.movingBox);
                 if(BoxesTouch.isOutOfBounds(touch.target.movingBox)) touch.target.movingBox.remove();
                 // Change state to "not-moving-anything" by clearing out
                 // touch.target.movingBox. 
@@ -104,6 +96,13 @@ var BoxesTouch = {
         });
     },
 
+    finishedNewBox: function ( jQueryElement ){
+        jQueryElement.find("div.new-box").
+            each(function (index, element) {              
+                element.addEventListener("touchstart", BoxesTouch.startMove, false);
+                element.addEventListener("touchend", BoxesTouch.unhighlight, false);
+            }).removeClass("new-box");
+    },
     /**
      * Indicates that an element is unhighlighted.
      */
@@ -119,8 +118,6 @@ var BoxesTouch = {
             // Highlight the element.
             $(touch.target).addClass("box-highlight");
 
-            // Take note of the box's current (global) location.
-            console.log($(touch.target));
 
             var jThis = $(touch.target),
                 startOffset = jThis.offset();
