@@ -14,7 +14,6 @@ $(document).ready( function() {
                 top: tooltipY,
                 left: tooltipX 
             });
-            //event.stopPropagation();
         });
         this.hover(function () {
             console.log("Appearing has x: " + tooltipX + " and y: " + tooltipY)
@@ -23,19 +22,20 @@ $(document).ready( function() {
                 .appendTo(elem)
                 .width(tooltipWidth)
                 .height(tooltipHeight)
-                .hide()
                 .html(str)
+                .css("visibility","hidden")
                 .offset({
                     top: tooltipY,
                     left: tooltipX 
                 });
-                tooltipTimeout = setTimeout(showToolTip, 500);
+                tooltipTimeout = setTimeout(showToolTip, 1000);
         },function () {
             tooltip.remove();
         });
 
         var showToolTip = function () {
-            tooltip.show();
+            $(tooltip).css("visibility","visible");
+            console.log("Did I wait?");
             console.log(tooltip.offset().top);
             console.log(tooltip.offset().left);
         };
