@@ -1,0 +1,9 @@
+#hasToolTip {
+    cursor: pointer;
+}
+.tooltip {
+    display: block;
+    position: absolute;
+    background-color: rgb(130, 150, 200);
+    padding: 5px;
+}
