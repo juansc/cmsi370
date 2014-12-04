@@ -9,12 +9,13 @@ $(document).ready( function() {
         this.mousemove(function (event) {
             tooltipX = event.pageX;
             tooltipY = $(tooltip).parent().offset().top + 30; 
-            console.log(" has x: " + tooltipX + " and y: " + tooltipY);
+            console.log("(move) has x: " + tooltipX + " and y: " + tooltipY);
             tooltip.offset({
                 top: tooltipY,
                 left: tooltipX 
             });
             //event.stopPropagation();
+            console.log("(move)", tooltip.offset()); // JD: Added...compare to tooltipX and tooltipY
         });
         this.hover(function () {
             console.log("Appearing has x: " + tooltipX + " and y: " + tooltipY)
@@ -29,7 +30,8 @@ $(document).ready( function() {
                     top: tooltipY,
                     left: tooltipX 
                 });
-                tooltipTimeout = setTimeout(showToolTip, 500);
+                console.log("(hover)", tooltip.offset()); // JD: Also added to compare to tooltipX and tooltipY
+                tooltipTimeout = setTimeout(showToolTip, 500); // JD: Why are you delaying the show()?
         },function () {
             tooltip.remove();
         });
