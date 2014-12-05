@@ -32,16 +32,17 @@ $(document).ready(function () {
                 });
                 tooltipTimeout = setTimeout(showToolTip, 1000);
             }
+            console.log(tooltip.css("visibility"));
         });
         this.mouseleave(function (){
-            window.clearTimeout(tooltipTimeout);
-            tooltip = null;
+            if(tooltip.css("visibility") === "hidden"){
+                clearTimeout(tooltipTimeout);
+                tooltip = null;
+            }
         });
 
         var showToolTip = function () {
-            tooltipTimeout = null;
             $(tooltip).css("visibility", "visible");
-
         };
 
     };
