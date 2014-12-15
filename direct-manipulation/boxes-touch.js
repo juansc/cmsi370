@@ -44,8 +44,10 @@ var BoxesTouch = {
     trackDrag: function (event) {
         $.each(event.changedTouches, function (index, touch) {
             // Don't bother if we aren't tracking anything.
+            // JD: 3
             //console.log(touch);
             if (touch.drawingBox) {
+                // JD: 4
                 if(!(touch.pageX > BoxesTouch.rightBound || touch.pageX < BoxesTouch.leftBound || touch.pageY < BoxesTouch.topBound || touch.pageY > BoxesTouch.bottomBound) ){  
                     var newOffset = {
                         left: (touch.anchorX < touch.pageX) ? touch.anchorX : touch.pageX,
@@ -57,11 +59,11 @@ var BoxesTouch = {
                         .width(Math.abs(touch.pageX - touch.anchorX))
                         .height(Math.abs(touch.pageY - touch.anchorY));
                 }
-            }else if (touch.target.movingBox) {
+            }else if (touch.target.movingBox) { // JD: 4
                 // Mark it if out of bounds.
-                if(BoxesTouch.isOutOfBounds(touch.target.movingBox)){ 
+                if(BoxesTouch.isOutOfBounds(touch.target.movingBox)){ // JD: 4
                     touch.target.movingBox.addClass("box-out-of-bounds");
-                } else{
+                } else{ // JD: 4
                     touch.target.movingBox.removeClass("box-out-of-bounds");
                 }
 
@@ -85,10 +87,10 @@ var BoxesTouch = {
             if (touch.drawingBox) {
                 BoxesTouch.finishedNewBox($("#drawing-area"));
                 touch.drawingBox = null;
-            }else if (touch.target.movingBox) {
+            }else if (touch.target.movingBox) { // JD: 4
                 // If out of bounds, remove.
                 console.log(touch.target.movingBox);
-                if(BoxesTouch.isOutOfBounds(touch.target.movingBox)) touch.target.movingBox.remove();
+                if(BoxesTouch.isOutOfBounds(touch.target.movingBox)) touch.target.movingBox.remove(); // JD: 5
                 // Change state to "not-moving-anything" by clearing out
                 // touch.target.movingBox. 
                 touch.target.movingBox = null;
@@ -96,13 +98,13 @@ var BoxesTouch = {
         });
     },
 
-    finishedNewBox: function ( jQueryElement ){
+    finishedNewBox: function ( jQueryElement ){ // JD: 4
         jQueryElement.find("div.new-box").
             each(function (index, element) {              
                 element.addEventListener("touchstart", BoxesTouch.startMove, false);
                 element.addEventListener("touchend", BoxesTouch.unhighlight, false);
-            }).removeClass("new-box");
-    },
+            }).removeClass("new-box"); // JD: 2
+    }, // JD: 6
     /**
      * Indicates that an element is unhighlighted.
      */
@@ -136,7 +138,8 @@ var BoxesTouch = {
         event.stopPropagation();
     },
 
-    isOutOfBounds: function( element ){
+    isOutOfBounds: function( element ){ // JD: 4
+        // JD: 7
         return element.offset().left < BoxesTouch.leftBound || (element.offset().left + element.width()) > BoxesTouch.rightBound || element.offset().top < BoxesTouch.topBound || (element.offset().top + element.height()) > BoxesTouch.bottomBound;
     },
 
